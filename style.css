@@ -1,0 +1,203 @@
+/* =========================================
+   RESET ET BASE
+   ========================================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111111; /* Fond noir */
+    color: #e0e0e0; /* Texte gris clair */
+    font-family: 'Roboto', sans-serif; /* Police texte courant */
+    height: 100vh; /* Prend toute la hauteur */
+    overflow: hidden; /* Empêche le scroll (style affiche) */
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* =========================================
+   HEADER
+   ========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- Menu de Navigation --- */
+.main-nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.1rem;
+    margin-right: 30px;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Style pour la page active */
+.main-nav a.active {
+    color: #ffffff;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* --- Info Profil (Droite) --- */
+.header-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-text {
+    text-align: right;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    color: #aaaaaa;
+}
+
+.author-name {
+    display: block;
+    color: #ffffff;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* --- Photo avec ZOOM --- */
+.profile-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333;
+    
+    /* Animation fluide */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+}
+
+.profile-pic:hover {
+    transform: scale(1.8); /* Zoom x1.8 au survol */
+    border-color: #fff;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+/* =========================================
+   HERO SECTION (TITRES)
+   ========================================= */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.sub-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    text-transform: uppercase;
+    align-self: flex-start; /* Aligné à gauche */
+    margin-left: 5%;
+    margin-bottom: -15px; /* Léger chevauchement */
+    color: #fff;
+    z-index: 1;
+}
+
+.composition {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18vw; /* S'adapte à la largeur de l'écran */
+    line-height: 0.8;
+    text-transform: uppercase;
+    color: #e0e0e0;
+    transform: scaleY(1.35); /* Texte étiré verticalement */
+    margin: 0;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+}
+
+.text-block {
+    max-width: 350px;
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .container { padding: 1.5rem; }
+
+    header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .header-profile {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    
+    .header-text { text-align: left; }
+
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        border-top: 1px solid #333;
+        padding-top: 15px;
+    }
+
+    .sub-title { font-size: 2rem; }
+    .main-title { font-size: 20vw; }
+    
+    footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .right-align { text-align: left; }
+}
