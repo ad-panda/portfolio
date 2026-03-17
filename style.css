@@ -210,6 +210,12 @@ footer {
     flex-direction: column;
 }
 
+.content-section{
+   flex-grow:1;
+   overflow-y:auto;
+   overflow-x:hidden;
+}
+
 .project-item {
     display: flex;
     justify-content: space-between;
