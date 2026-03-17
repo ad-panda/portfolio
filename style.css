@@ -1,28 +1,41 @@
 /* =========================================
    RESET ET BASE
    ========================================= */
-   * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+/* On personnalise la barre de défilement pour toute la page */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #111111; 
+}
+::-webkit-scrollbar-thumb {
+    background: #333333; 
+    border-radius: 4px;  
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555555; 
 }
 
 body {
     background-color: #111111; /* Fond noir */
     color: #e0e0e0; /* Texte gris clair */
     font-family: 'Roboto', sans-serif; /* Police texte courant */
-    height: 100vh; /* Prend toute la hauteur */
-    overflow: hidden; /* Empêche le scroll (style affiche) */
+    /* On enlève le blocage du défilement ici */
 }
 
 .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 2rem;
-    height: 100%;
+    min-height: 100vh; /* Prend au minimum la hauteur de l'écran */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 /* =========================================
@@ -89,8 +102,6 @@ header {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #333;
-    
-    /* Animation fluide */
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
 }
 
@@ -103,14 +114,14 @@ header {
 }
 
 /* =========================================
-   HERO SECTION (TITRES)
+   HERO SECTION (TITRES PAGE ACCUEIL)
    ========================================= */
 .hero-section {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
+    flex-grow: 1; /* Pousse le footer vers le bas */
 }
 
 .sub-title {
@@ -142,78 +153,20 @@ header {
 }
 
 /* =========================================
-   FOOTER
+   ZONE CENTRALE (PROJETS, FORMATION, CERTIF)
    ========================================= */
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-top: 20px;
-}
-
-.text-block {
-    max-width: 350px;
-    font-size: 0.85rem;
-    color: #888;
-    line-height: 1.5;
-}
-
-.right-align {
-    text-align: right;
+.content-section {
+    flex-grow: 1; /* Pousse le footer vers le bas même si le contenu est court */
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 /* =========================================
-   MOBILE RESPONSIVE
+   STYLES POUR LES PROJETS
    ========================================= */
-@media (max-width: 768px) {
-    .container { padding: 1.5rem; }
-
-    header {
-        flex-direction: column-reverse;
-        align-items: flex-start;
-        gap: 20px;
-    }
-    
-    .header-profile {
-        width: 100%;
-        justify-content: space-between;
-        flex-direction: row-reverse;
-    }
-    
-    .header-text { text-align: left; }
-
-    .main-nav {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        border-top: 1px solid #333;
-        padding-top: 15px;
-    }
-
-    .sub-title { font-size: 2rem; }
-    .main-title { font-size: 20vw; }
-    
-    footer {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .right-align { text-align: left; }
-}
-
-/* =========================================
-   NOUVEAUX STYLES POUR LES PROJETS
-   ========================================= */
-   .projects-container {
+.projects-container {
     display: flex;
     flex-direction: column;
-}
-
-.content-section{
-   flex-grow:1;
-   overflow-y:auto;
-   overflow-x:hidden;
 }
 
 .project-item {
@@ -298,12 +251,69 @@ footer {
 }
 
 /* =========================================
-   Mise à jour MOBILE RESPONSIVE
+   FOOTER
+   ========================================= */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-top: 20px;
+}
+
+.text-block {
+    max-width: 350px;
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.5;
+}
+
+.right-align {
+    text-align: right;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE (POUR LES TÉLÉPHONES)
    ========================================= */
 @media (max-width: 768px) {
-    /* ... Vos styles existants ici ... */
+    .container { padding: 1.5rem; }
 
-    /* Empiler le texte et l'image pour les projets */
+    header {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .header-profile {
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    
+    .header-text { text-align: left; }
+
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        border-top: 1px solid #333;
+        padding-top: 15px;
+    }
+
+    .sub-title { font-size: 2rem; }
+    .main-title { font-size: 20vw; }
+    
+    footer {
+        flex-direction: column;
+        gap: 20px;
+        border-top: 1px solid #222;
+        padding-top: 20px;
+        margin-top: 20px;
+    }
+    
+    .right-align { text-align: left; }
+
+    /* Empiler le texte et l'image pour les projets sur mobile */
     .project-item {
         flex-direction: column-reverse;
         gap: 20px;
