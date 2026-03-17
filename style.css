@@ -201,3 +201,117 @@ footer {
     
     .right-align { text-align: left; }
 }
+
+/* =========================================
+   NOUVEAUX STYLES POUR LES PROJETS
+   ========================================= */
+   .projects-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+    gap: 20px;
+}
+
+.project-item.last {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.project-text {
+    flex-basis: 50%;
+    padding-right: 20px;
+}
+
+.project-text h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.project-text p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* --- Bouton GitHub --- */
+.btn-github {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #333; /* Gris foncé */
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: 1px solid #444;
+}
+
+.btn-github:hover {
+    background-color: #555; /* Plus clair au survol */
+    cursor: pointer;
+    transform: translateY(-2px); /* Léger effet de levée */
+    color: #ffffff;
+}
+
+/* --- Container d'Image --- */
+.project-image-container {
+    flex-basis: 50%;
+    padding-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.project-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px; /* Coins arrondis pour l'image */
+    border: 2px solid #333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-image:hover {
+    transform: scale(1.02); /* Léger zoom au survol */
+    border-color: #666;
+}
+
+/* =========================================
+   Mise à jour MOBILE RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    /* ... Vos styles existants ici ... */
+
+    /* Empiler le texte et l'image pour les projets */
+    .project-item {
+        flex-direction: column-reverse;
+        gap: 20px;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+
+    .project-text {
+        flex-basis: 100%;
+        padding-right: 0;
+    }
+
+    .project-image-container {
+        flex-basis: 100%;
+        padding-left: 0;
+    }
+}
